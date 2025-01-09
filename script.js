@@ -60,3 +60,16 @@ function checkAnswer(selectedIndex){
     nextButton.style.display="block";
     console.log("testing");
 }
+
+nextButton.addEventListener("click", () => {
+    currentQuestionIndex++;
+    if(currentQuestionIndex < questions.length){
+        loadQuestion();
+        nextButton.style.display="none";
+    }else{
+        questionText.textContent="Quiz Complete";
+        answersContainer.innerHTML=`Your final score is ${score}/${questions.length}.`;
+        nextButton.style.display="none";
+    }
+});
+loadQuestion();
